@@ -17,11 +17,11 @@ k = 0
 tk = S[k]
 
 # 移除飽和主機後的 S 列表
-S = [S[i] for i in range(n) if i != k]
+S_k= [S[i] for i in range(n) if i != k]
 
 # 計算其他主機的目標吞吐量
 sum_C_over_S = sum(C[i] / S[i] for i in range(n))
-sum_1_over_S = sum(1 / S[i] for i in range(n - 1))  #沒有k所以-1
+sum_1_over_S = sum(1 / S_k[i] for i in range(n - 1))  #沒有k所以-1
 
 t_other = (sum_C_over_S - 1) / sum_1_over_S
 
